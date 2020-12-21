@@ -2,6 +2,11 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class Sorts {
+
+    /**Bubble sort of an int array.
+     *@postcondition The array will be modified such that the elements will be in increasing order.
+     *@param data  the elements to be sorted.
+     */
     public static void bubbleSort(int[] data) {
         int x = 0;
         int y = 1;
@@ -25,7 +30,68 @@ public class Sorts {
             z--;
         }
         String answer = Arrays.toString(data);
-        System.out.print(answer);
+        System.out.println(answer);
+    }
+
+    public static void selectionSort(int[] data) {
+        int x = 0;
+        int i = x;
+        int min = Integer.MAX_VALUE;
+        int pos = 0;
+        int hold = 0;
+        while (x < data.length) {
+            while (i < data.length) {
+                if (data[i] < min) {
+                    min = data[i];
+                    pos = i;
+                    i++;
+                } else {
+                    i++;
+                }
+            }
+            i = pos;
+            hold = min;
+            data[i] = data[x];
+            data[x] = hold;
+            x++;
+            i = x;
+            min = Integer.MAX_VALUE;
+        }
+        String answer = Arrays.toString(data);
+        System.out.println(answer);
+    }
+
+    public static void insertionSort(int[] data) {
+        int x = 1;
+        int hold = 0;
+        int sorted = 0;
+        int y = sorted;
+        while (x < data.length) {
+            if (data[x] < data[y]) {
+                while (y > 0) {
+                    if (data[y] < data[x]) {
+                        hold = data[y];
+                        data[y] = data[x];
+                        data[x] = hold;
+                        y = 0;
+                    } else {
+                        y--;
+                    }
+                }
+                x++;
+                sorted++;
+                y = sorted;
+            } else {
+                hold = data[y];
+                data[y] = data[x];
+                data[x] = hold;
+                x++;
+                sorted++;
+                y = sorted;
+            }
+        }
+        String answer = Arrays.toString(data);
+        System.out.println(answer);
     }
 }
 
@@ -41,5 +107,7 @@ class Tester {
         String answer1 = Arrays.toString(test1);
         System.out.println(answer1);
         Sorts.bubbleSort(test1);
+        Sorts.selectionSort(test1);
+        Sorts.insertionSort(test1);
     }
 }
