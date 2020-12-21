@@ -90,6 +90,14 @@ public class Sorts {
                 y = sorted;
             }
         }
+        x = data.length - 1;
+        y = 0;
+        while (y < data.length) {
+            hold = data[y];
+            data[y] = data[x];
+            data[x] = hold;
+            y++;
+        }
         String answer = Arrays.toString(data);
         System.out.println(answer);
     }
