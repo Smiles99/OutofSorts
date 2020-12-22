@@ -2,7 +2,6 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class Sorts {
-
     /**Bubble sort of an int array.
      *@postcondition The array will be modified such that the elements will be in increasing order.
      *@param data  the elements to be sorted.
@@ -106,11 +105,11 @@ public class Sorts {
 class Tester {
     public static void main(String[] args) {
         Random len = new Random();
-        int x = len.nextInt(100);
+        int x = len.nextInt(10);
         int[] test1 = new int[x];
         Random place = new Random();
         for(int i = 0; i < test1.length; i++) {
-            test1[i] = place.nextInt(100);
+            test1[i] = place.nextInt(10);
         }
         String answer1 = Arrays.toString(test1);
         System.out.println(answer1);
